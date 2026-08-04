@@ -1,6 +1,6 @@
 /*==============================================================
 PROJETO: Student Performance Analysis
-AUTOR: Kaike
+AUTOR: Charliton Nogueira
 OBJETIVO:
 Análise Exploratória dos Dados (EDA) utilizando SQL.
 
@@ -146,18 +146,12 @@ ORDER BY quantidade DESC;
 ---------------------------------------------------------------
 
 SELECT
-
     final_grade,
-
-    MIN(final_exam_score) menor_nota,
-
-    MAX(final_exam_score) maior_nota
-
+    MIN(CAST(final_exam_score AS REAL)) AS menor_nota,
+    MAX(CAST(final_exam_score AS REAL)) AS maior_nota
 FROM estudantes
-
 GROUP BY final_grade
-
-ORDER BY menor_nota DESC;
+ORDER BY final_grade;
 
 
 
@@ -166,7 +160,7 @@ ORDER BY menor_nota DESC;
 ---------------------------------------------------------------
 
 SELECT
-    MAX(final_exam_score) melhor_nota
+    MAX(CAST(final_exam_score AS REAL)) melhor_nota
 FROM estudantes;
 
 
@@ -176,13 +170,13 @@ FROM estudantes;
 ---------------------------------------------------------------
 
 SELECT
-    MIN(final_exam_score) pior_nota
+    MIN(CAST(final_exam_score AS REAL)) pior_nota
 FROM estudantes;
 
 
 
 ---------------------------------------------------------------
--- Perfil do aluno com a maior nota
+-- Perfil doS 10 aluno com a maior nota
 ---------------------------------------------------------------
 
 SELECT *
@@ -191,11 +185,13 @@ FROM estudantes
 
 WHERE final_exam_score = (
 
-SELECT MAX(final_exam_score)
+SELECT MAX(CAST(final_exam_score AS REAL))
 
 FROM estudantes
 
-);
+)
+
+LIMIT 10;
 
 
 
@@ -209,39 +205,11 @@ FROM estudantes
 
 WHERE final_exam_score = (
 
-SELECT MIN(final_exam_score)
+SELECT MIN(CAST(final_exam_score AS REAL))
 
 FROM estudantes
 
 );
-
-
-
----------------------------------------------------------------
--- Top 10 melhores estudantes
----------------------------------------------------------------
-
-SELECT *
-
-FROM estudantes
-
-ORDER BY final_exam_score DESC
-
-LIMIT 10;
-
-
-
----------------------------------------------------------------
--- Top 10 menores notas
----------------------------------------------------------------
-
-SELECT *
-
-FROM estudantes
-
-ORDER BY final_exam_score
-
-LIMIT 10;
 
 
 
@@ -351,25 +319,11 @@ ORDER BY media DESC;
 
 SELECT
 
-ROUND(
-
-100.0 *
-
-SUM(
-
-CASE
-
-WHEN final_grade <> 'F'
-
-THEN 1
-
-ELSE 0
-
-END
-
-)/COUNT(*)
-
-,2)
+    ROUND(100.0 * SUM( 
+        CASE
+            WHEN final_grade <> 'F' THEN 1
+            ELSE 0
+        END)/COUNT(*), 2)
 
 AS taxa_aprovacao
 
@@ -383,25 +337,11 @@ FROM estudantes;
 
 SELECT
 
-ROUND(
-
-100.0 *
-
-SUM(
-
-CASE
-
-WHEN final_grade='F'
-
-THEN 1
-
-ELSE 0
-
-END
-
-)/COUNT(*)
-
-,2)
+ROUND(100.0 * SUM(
+    CASE
+        WHEN final_grade='F' THEN 1
+        ELSE 0
+    END)/COUNT(*), 2)
 
 AS taxa_reprovacao
 
@@ -414,18 +354,11 @@ FROM estudantes;
 ---------------------------------------------------------------
 
 SELECT
-
-CASE
-
-WHEN final_grade='F'
-
-THEN 'Reprovado'
-
-ELSE 'Aprovado'
-
-END situacao,
-
-COUNT(*) quantidade
+    CASE
+        WHEN final_grade='F' THEN 'Reprovado'
+        ELSE 'Aprovado'
+    END AS situacao,
+    COUNT(*) quantidade
 
 FROM estudantes
 
@@ -438,24 +371,17 @@ GROUP BY situacao;
 ---------------------------------------------------------------
 
 SELECT
+    CASE
+        WHEN final_grade='F' THEN 'Reprovado'
+        ELSE 'Aprovado'
+    END AS situacao,
+    ROUND(AVG(study_time_hours),2) estudo,
 
-CASE
+    ROUND(AVG(attendance_percent),2) frequencia,
 
-WHEN final_grade='F'
+    ROUND(AVG(sleep_hours),2) sono,
 
-THEN 'Reprovado'
-
-ELSE 'Aprovado'
-
-END situacao,
-
-ROUND(AVG(study_time_hours),2) estudo,
-
-ROUND(AVG(attendance_percent),2) frequencia,
-
-ROUND(AVG(sleep_hours),2) sono,
-
-ROUND(AVG(final_exam_score),2) nota
+    ROUND(AVG(final_exam_score),2) nota
 
 FROM estudantes
 
@@ -548,8 +474,8 @@ FROM estudantes;
 
 SELECT
 
-    MIN(sleep_hours) AS minimo_sono,
-    MAX(sleep_hours) AS maximo_sono
+    MIN(CAST(sleep_hours AS REAL)) AS minimo_sono,
+    MAX(CAST(sleep_hours AS REAL)) AS maximo_sono
 
 FROM estudantes;
 
