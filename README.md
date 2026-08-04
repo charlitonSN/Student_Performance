@@ -22,18 +22,32 @@ O foco do projeto é aplicar técnicas de análise exploratória de dados (EDA) 
 
 ## Principais análises realizadas
 
-* Estatísticas descritivas das notas dos estudantes.
-* Taxa de aprovação e distribuição dos conceitos (A, B, C, D e F).
-* Relação entre horas de estudo e desempenho acadêmico.
-* Impacto da frequência às aulas nas notas finais.
-* Comparação do desempenho entre estudantes com e sem acesso à internet.
-* Influência da escolaridade dos pais no rendimento escolar.
-* Comparação entre estudantes que possuem trabalho de meio período e aqueles que não possuem.
-* Análise da participação em atividades extracurriculares e seu impacto nas notas.
+A análise exploratória do conjunto de dados permitiu identificar padrões relevantes relacionados ao desempenho acadêmico dos estudantes:
 
-## Principais insights
+* **Distribuição do desempenho acadêmico:** foi analisada a distribuição dos estudantes por conceito (A, B, C, D e F), bem como as taxas de aprovação e reprovação.
 
-Ao longo da análise, foram investigadas associações entre diferentes características dos estudantes e seu desempenho acadêmico. Os resultados permitem identificar padrões que podem contribuir para uma melhor compreensão dos fatores relacionados ao sucesso escolar, utilizando técnicas de análise exploratória de dados.
+* **Hábitos de estudo:** estudantes com maior carga horária de estudos tendem a apresentar notas finais mais elevadas, indicando uma associação positiva entre dedicação aos estudos e desempenho.
+
+* **Frequência às aulas:** alunos com frequência acima da média obtiveram, em média, melhores resultados nas avaliações finais quando comparados aos estudantes com menor assiduidade.
+
+* **Horas de sono:** foram comparadas diferentes faixas de horas de sono para investigar possíveis diferenças no desempenho acadêmico.
+
+* **Acesso à internet:** estudantes com acesso à internet apresentaram médias de notas, tempo de estudo e frequência às aulas diferentes daqueles sem acesso, permitindo avaliar a influência desse recurso no contexto educacional.
+
+* **Atividades extracurriculares:** foi analisado se a participação em atividades extracurriculares está associada a diferenças nas notas e no tempo dedicado aos estudos.
+
+* **Trabalho de meio período:** a análise comparou estudantes que trabalham e os que não trabalham, considerando nota média, horas de estudo, frequência, horas de sono e taxa de reprovação.
+
+* **Escolaridade dos pais:** foram identificadas diferenças no desempenho acadêmico conforme o nível de escolaridade dos pais, permitindo avaliar possíveis associações entre contexto familiar e rendimento escolar.
+
+* **Histórico acadêmico:** estudantes com melhores notas anteriores tendem a manter um desempenho superior nas avaliações finais, evidenciando consistência no rendimento ao longo do tempo.
+
+* **Perfis de desempenho:** foram comparadas as características médias dos estudantes com melhor desempenho (conceito A) e dos estudantes reprovados (conceito F), considerando hábitos de estudo, frequência, sono e desempenho anterior.
+
+* **Rankings e estatísticas descritivas:** o projeto também apresenta indicadores gerais da base, como médias, valores mínimos e máximos, distribuição por gênero, perfil dos estudantes e ranking dos melhores e piores desempenhos.
+
+> **Observação:** Os resultados apresentados representam associações observadas no conjunto de dados e têm caráter exploratório. As análises não permitem concluir relações de causa e efeito entre as variáveis estudadas.
+
 
 ## Fonte dos dados
 
