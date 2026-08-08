@@ -9,6 +9,13 @@ FROM estudantes;
 
 
 
+-- Total de alunos
+SELECT 
+	COUNT(student_id) AS qtd_estudantes
+
+FROM estudantes
+
+
 -- Quantos alunos existem por sexo?
 
 SELECT 
@@ -49,9 +56,9 @@ FROM estudantes
 
 
 
--- Qual foi a média da nota prevista?
+-- Qual foi a média da nota anterior?
 SELECT 
-	ROUND(AVG(previous_grade), 2) AS media_nota_prevista
+	ROUND(AVG(previous_grade), 2) AS media_nota_anterior
 	
 FROM estudantes
 
@@ -222,7 +229,7 @@ SELECT
     
 FROM estudantes
 
-WHERE final_grade IN ("A", "D", "F")
+WHERE final_grade IN ("A", "F")
 
 GROUP BY final_grade
 

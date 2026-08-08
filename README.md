@@ -1,59 +1,73 @@
-# 📊 Student Performance Analysis with SQL
+# 📊 Student Performance Analysis
 
-## Sobre o projeto
+## Análise de desempenho acadêmico utilizando SQL e Power BI
 
-Este projeto foi desenvolvido com o objetivo de demonstrar habilidades em **SQL para Análise de Dados**, utilizando um conjunto de dados sobre desempenho acadêmico de estudantes. A análise busca identificar fatores que podem estar associados ao rendimento escolar, como tempo de estudo, frequência às aulas, acesso à internet, horas de sono, escolaridade dos pais, participação em atividades extracurriculares e trabalho de meio período.
+Projeto de análise exploratória desenvolvido para investigar **quais fatores estão associados ao desempenho acadêmico dos estudantes**, utilizando dados sobre hábitos de estudo, frequência, sono, contexto familiar e características dos alunos.
 
-O foco do projeto é aplicar técnicas de análise exploratória de dados (EDA) por meio de consultas SQL, transformando dados brutos em informações relevantes para apoiar a tomada de decisão.
+A análise utiliza **SQL** para exploração, transformação e agregação dos dados e **Power BI** para criação de um dashboard interativo com os principais indicadores e insights encontrados.
 
-## Objetivos
+---
 
-* Explorar o conjunto de dados utilizando consultas SQL.
-* Aplicar funções de agregação, filtros, agrupamentos e expressões condicionais.
-* Gerar indicadores de desempenho acadêmico.
-* Identificar padrões e relações entre hábitos de estudo e notas dos estudantes.
-* Desenvolver um dashboard no Power BI para comunicar os principais insights obtidos na análise.
+## 🎯 Objetivo do projeto
 
-## Tecnologias utilizadas
+O principal objetivo é transformar dados brutos sobre estudantes em informações que permitam compreender melhor os padrões relacionados ao desempenho acadêmico.
 
-* SQL
-* Power BI
-* Git e GitHub
+A pergunta central da análise é:
 
-## Principais análises realizadas
+> **Quais fatores estão associados ao desempenho acadêmico dos estudantes?**
 
-A análise exploratória do conjunto de dados permitiu identificar padrões relevantes relacionados ao desempenho acadêmico dos estudantes:
+Para responder a essa pergunta, foram analisadas variáveis relacionadas a:
 
-* **Distribuição do desempenho acadêmico:** foi analisada a distribuição dos estudantes por conceito (A, B, C, D e F), bem como as taxas de aprovação e reprovação.
+- 📚 Tempo de estudo
+- 📅 Frequência às aulas
+- 😴 Horas de sono
+- 🎓 Escolaridade dos pais
+- 🌐 Acesso à internet
+- 🏃 Atividades extracurriculares
+- 💼 Trabalho em período parcial
+- 📈 Desempenho acadêmico anterior
+- 👥 Gênero
+- 📝 Nota final e classificação acadêmica
 
-* **Hábitos de estudo:** estudantes com maior carga horária de estudos tendem a apresentar notas finais mais elevadas, indicando uma associação positiva entre dedicação aos estudos e desempenho.
+---
 
-* **Frequência às aulas:** alunos com frequência acima da média obtiveram, em média, melhores resultados nas avaliações finais quando comparados aos estudantes com menor assiduidade.
+# 📁 Dataset
 
-* **Horas de sono:** foram comparadas diferentes faixas de horas de sono para investigar possíveis diferenças no desempenho acadêmico.
+O conjunto de dados utilizado neste projeto foi obtido no Kaggle:
 
-* **Acesso à internet:** estudantes com acesso à internet apresentaram médias de notas, tempo de estudo e frequência às aulas diferentes daqueles sem acesso, permitindo avaliar a influência desse recurso no contexto educacional.
+**Student Performance and Study Habits Dataset**
 
-* **Atividades extracurriculares:** foi analisado se a participação em atividades extracurriculares está associada a diferenças nas notas e no tempo dedicado aos estudos.
+O dataset reúne informações sobre desempenho acadêmico e hábitos de estudo dos estudantes.
 
-* **Trabalho de meio período:** a análise comparou estudantes que trabalham e os que não trabalham, considerando nota média, horas de estudo, frequência, horas de sono e taxa de reprovação.
+### Principais variáveis
 
-* **Escolaridade dos pais:** foram identificadas diferenças no desempenho acadêmico conforme o nível de escolaridade dos pais, permitindo avaliar possíveis associações entre contexto familiar e rendimento escolar.
+| Variável | Descrição |
+|---|---|
+| `student_id` | Identificador do estudante |
+| `gender` | Gênero |
+| `study_time_hours` | Horas dedicadas aos estudos |
+| `attendance_percent` | Percentual de frequência |
+| `sleep_hours` | Horas de sono |
+| `parental_education` | Nível de escolaridade dos pais |
+| `internet_access` | Acesso à internet |
+| `extracurricular_activities` | Participação em atividades extracurriculares |
+| `part_time_job` | Trabalho em período parcial |
+| `previous_grade` | Desempenho acadêmico anterior |
+| `final_exam_score` | Nota da avaliação final |
+| `final_grade` | Classificação final do estudante |
 
-* **Histórico acadêmico:** estudantes com melhores notas anteriores tendem a manter um desempenho superior nas avaliações finais, evidenciando consistência no rendimento ao longo do tempo.
+### Fonte dos dados
 
-* **Perfis de desempenho:** foram comparadas as características médias dos estudantes com melhor desempenho (conceito A) e dos estudantes reprovados (conceito F), considerando hábitos de estudo, frequência, sono e desempenho anterior.
+[Kaggle — Student Performance and Study Habits Dataset](https://www.kaggle.com/datasets/harshadapatil31/student-performance-and-study-habits-dataset/data)
 
-* **Rankings e estatísticas descritivas:** o projeto também apresenta indicadores gerais da base, como médias, valores mínimos e máximos, distribuição por gênero, perfil dos estudantes e ranking dos melhores e piores desempenhos.
+> O conjunto de dados é utilizado neste projeto como estudo de caso para fins educacionais e de portfólio.
 
-> **Observação:** Os resultados apresentados representam associações observadas no conjunto de dados e têm caráter exploratório. As análises não permitem concluir relações de causa e efeito entre as variáveis estudadas.
+---
 
+# 🛠️ Tecnologias utilizadas
 
-## Fonte dos dados
-
-O conjunto de dados utilizado neste projeto foi disponibilizado publicamente na plataforma Kaggle e reúne informações fictícias sobre desempenho acadêmico e hábitos de estudo de estudantes. O objetivo deste projeto é exclusivamente educacional, servindo como estudo de caso para demonstrar competências em SQL, análise de dados e visualização de informações.
-
-## Link para os dados
-
-https://www.kaggle.com/datasets/harshadapatil31/student-performance-and-study-habits-dataset/data
-
+- **Python** — preparação dos dados e criação do banco SQLite
+- **SQLite** — armazenamento dos dados
+- **SQL** — exploração, agregação e análise dos dados
+- **Power BI** — criação do dashboard e visualização dos resultados
+- **Git/GitHub** — versionamento e documentação do projeto
