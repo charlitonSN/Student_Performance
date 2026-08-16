@@ -71,3 +71,9 @@ O dataset reúne informações sobre desempenho acadêmico e hábitos de estudo 
 - **SQL** — exploração, agregação e análise dos dados
 - **Power BI** — criação do dashboard e visualização dos resultados
 - **Git/GitHub** — versionamento e documentação do projeto
+
+---
+
+# 📄 Relatório da análise SQL
+
+O script SQL passou por uma revisão de correção e validação contra o banco de dados. O relatório completo, com os bugs encontrados/corrigidos e os principais resultados da análise, está em [`sql/README.md`](sql/README.md).

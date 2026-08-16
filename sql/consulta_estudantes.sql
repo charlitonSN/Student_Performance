@@ -10,15 +10,15 @@ FROM estudantes;
 
 
 -- Total de alunos
-SELECT 
+SELECT
 	COUNT(student_id) AS qtd_estudantes
 
-FROM estudantes
+FROM estudantes;
 
 
 -- Quantos alunos existem por sexo?
 
-SELECT 
+SELECT
 	gender,
 	COUNT(student_id) AS qtd_estudantes
 
@@ -29,7 +29,7 @@ GROUP BY gender;
 
 
 -- Quantidade de alunos por grade de notas?
-SELECT 
+SELECT
 	final_grade,
 	COUNT(student_id) AS qtd_estudantes
 
@@ -40,111 +40,111 @@ GROUP BY final_grade;
 
 
 -- Média final das notas?
-SELECT 
+SELECT
 	ROUND(AVG(final_exam_score), 2) AS media_notas
-	
-FROM estudantes
+
+FROM estudantes;
 
 
 
 -- Menor e maior nota?
-SELECT 
+SELECT
 	MIN(final_exam_score) AS menor_nota,
 	MAX(final_exam_score) AS maior_nota
 
-FROM estudantes
+FROM estudantes;
 
 
 
 -- Qual foi a média da nota anterior?
-SELECT 
+SELECT
 	ROUND(AVG(previous_grade), 2) AS media_nota_anterior
-	
-FROM estudantes
+
+FROM estudantes;
 
 
 
 -- A maioria dos alunos tem notas boas ou ruins?
-SELECT 
+SELECT
 	final_grade,
 	COUNT(student_id)
 
 FROM estudantes
 
-GROUP BY final_grade
+GROUP BY final_grade;
 
 
 
 -- Diferença dos indicadores entre homens e mulheres.
-SELECT 
+SELECT
 	gender,
 	ROUND(AVG(study_time_hours), 2) AS med_tempo_estudo,
 	ROUND(AVG(attendance_percent), 2) AS med_frequencia,
 	ROUND(AVG(sleep_hours), 2) AS med_horas_sono,
 	ROUND(AVG(previous_grade), 2) AS med_nota_prevista,
 	ROUND(AVG(final_exam_score), 2) AS med_nota_final
-	
+
 FROM estudantes
 
-GROUP BY gender
+GROUP BY gender;
 
 
 -- Quanto maior o tempo dedicado aos estudos, maior tende a ser a nota final?
-SELECT 
-	ROUND(sleep_hours) AS qtd_horas_sono,
+SELECT
+	ROUND(study_time_hours) AS qtd_horas_estudo,
 	ROUND(AVG(final_exam_score), 2) AS nota_media
-	
+
 FROM estudantes
 
-GROUP BY qtd_horas_sono
+GROUP BY qtd_horas_estudo
 
-ORDER BY nota_media DESC
+ORDER BY nota_media DESC;
 
 
 
 -- Alunos com presença alta possuem notas maiores?
-SELECT 
-	CASE 
-		WHEN attendance_percent < 70 THEN "frequencia_baixa"
+SELECT
+	CASE
+		WHEN attendance_percent < 70 THEN 'frequencia_baixa'
 		WHEN attendance_percent >= 70
-		AND  attendance_percent < 90 THEN "frequencia_média"
-		ELSE "frequencia_alta"
+		AND  attendance_percent < 90 THEN 'frequencia_média'
+		ELSE 'frequencia_alta'
 	END AS frequencia,
 	ROUND(AVG(final_exam_score), 2) AS nota_media
-	
+
 FROM estudantes
 
 GROUP BY frequencia
 
-ORDER BY nota_media DESC
+ORDER BY nota_media DESC;
 
 
 
 -- a quantidade de horas dormidas melhora o desempenho das notas?
 SELECT
 
-	CASE 
-		WHEN sleep_hours < 4 THEN "sono_baixo"
+	CASE
+		WHEN sleep_hours < 4 THEN 'sono_baixo'
 		WHEN sleep_hours >= 4
-		AND sleep_hours < 7 THEN "sono_medio"
-		ELSE "sono_alto"
+		AND sleep_hours < 7 THEN 'sono_medio'
+		ELSE 'sono_alto'
 	END AS horas_dormida,
     ROUND(AVG(final_exam_score),2) AS notas_media
-    
+
 FROM estudantes
-GROUP BY horas_dormida
+GROUP BY horas_dormida;
 
 
 
 -- Alunos com pais mais escolarizados apresentam melhores resultados?
-SELECT 
+SELECT
 	parental_education,
 	ROUND(AVG(final_exam_score), 2) AS notas_media
 
 FROM estudantes
 
 GROUP BY parental_education
-ORDER BY notas_media DESC
+ORDER BY notas_media DESC;
 
 
 
@@ -152,7 +152,7 @@ ORDER BY notas_media DESC
 SELECT
     internet_access,
     ROUND(AVG(final_exam_score),2) notas_media
-    
+
 FROM estudantes
 
 GROUP BY internet_access;
@@ -163,7 +163,7 @@ GROUP BY internet_access;
 SELECT
     extracurricular_activities,
     ROUND(AVG(final_exam_score),2) media
-    
+
 FROM estudantes
 
 GROUP BY extracurricular_activities;
@@ -174,7 +174,7 @@ GROUP BY extracurricular_activities;
 SELECT
     part_time_job,
     ROUND(AVG(final_exam_score),2) notas_media
-    
+
 FROM estudantes
 
 GROUP BY part_time_job;
@@ -185,7 +185,7 @@ GROUP BY part_time_job;
 SELECT
     ROUND(previous_grade) AS notas_anterior,
     ROUND(AVG(final_exam_score),2) AS notas_media
-    
+
 FROM estudantes
 
 GROUP BY ROUND(notas_anterior)
@@ -194,12 +194,12 @@ ORDER BY ROUND(notas_anterior);
 
 -- Rank com os top 15 estudantes com maior nota
 
-SELECT 
+SELECT
 	student_id,
 	gender,
 	previous_grade,
 	final_exam_score
-	
+
 FROM estudantes
 
 ORDER BY final_exam_score DESC
@@ -213,10 +213,10 @@ SELECT
     ROUND(AVG(study_time_hours),2) estudo,
     ROUND(AVG(attendance_percent),2) frequencia,
     ROUND(AVG(sleep_hours),2) sono
-    
+
 FROM estudantes
 
-WHERE final_grade = "A";
+WHERE final_grade = 'A';
 
 
 
@@ -226,12 +226,12 @@ SELECT
     ROUND(AVG(study_time_hours),2) estudo,
     ROUND(AVG(attendance_percent),2) frequencia,
     ROUND(AVG(sleep_hours),2) sono
-    
+
 FROM estudantes
 
-WHERE final_grade IN ("A", "F")
+WHERE final_grade IN ('A', 'F')
 
-GROUP BY final_grade
+GROUP BY final_grade;
 
 
 
@@ -250,23 +250,3 @@ FROM estudantes
 GROUP BY faixa
 
 ORDER BY media;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
