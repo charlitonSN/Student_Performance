@@ -76,4 +76,4 @@ O dataset reúne informações sobre desempenho acadêmico e hábitos de estudo 
 
 # 📄 Relatório da análise SQL
 
-O script SQL passou por uma revisão de correção e validação contra o banco de dados. O relatório completo, com os bugs encontrados/corrigidos e os principais resultados da análise, está em [`sql/README.md`](sql/README.md).
+O relatório completo com os resultados que respondem às perguntas da análise está em [`sql/README.md`](sql/README.md).
